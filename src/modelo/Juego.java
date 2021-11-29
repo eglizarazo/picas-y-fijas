@@ -3,6 +3,10 @@
  */
 package modelo;
 
+import java.lang.Math;
+import java.math.BigInteger;
+import java.util.Random;
+
 /**
  * @author Edison Lizarazo
  *
@@ -13,6 +17,11 @@ public class Juego {
     private int cantidaDigitos = 1;  // Por defecto 1
     private boolean permiteDigitosRepetidos = false;   //Por defecto falso
     private int cantidadIntentos = 1; //por defecto 1
+
+    private int picas = 0;
+    private int fijas = 0;
+    private BigInteger numeroParaAdivinar;
+    Random r = new Random();
 
 
     public boolean configurarJuego(int cantidadDigitos, boolean permiteDigitosRepetidos, int cantidadIntentos ) {
@@ -40,6 +49,17 @@ public class Juego {
 
         //Como en el flujo no salto ningun error se retorna true indicando que salio bien
         return true;
+    }
+
+    public void generarNumeroAleatorio() {
+
+        Random r = new Random(865);
+        String numberInString = "";
+        for(int i = 0; i< this.cantidaDigitos; i++) {
+            numberInString = numberInString + r.nextInt(9-1);
+        }
+        numeroParaAdivinar  = new BigInteger(numberInString);
+        System.out.println("Numero para adivinar es " + this.numeroParaAdivinar);
     }
 
 }

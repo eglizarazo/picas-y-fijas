@@ -14,10 +14,6 @@ public class Main {
         boolean permiteRepetidos;
         boolean configuracionCorrecta;
 
-
-
-
-
         System.out.println("Ingrese la cantidad de digitos en formato numerico ");
         cantidadDigitos = sc.nextInt();
         System.out.println("Ingrese la cantidad de intentos siguiendo la siguiente regla: min: 1 y max: cantidad de digitos multiplicado por 5 ");
@@ -27,6 +23,8 @@ public class Main {
 
         configuracionCorrecta = juego.configurarJuego(cantidadDigitos, permiteRepetidos, cantidadIntentos);
         System.out.println(configuracionCorrecta);
+
+        juego.generarNumeroAleatorio();
 
     }
 }
